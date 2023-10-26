@@ -112,8 +112,6 @@ if args.choice_modality == 'V':
     trg_train_data = get_meld_vision(args, 'train')  
     trg_valid_data = get_meld_vision(args, 'val')
     trg_test_data = get_meld_vision(args, 'test')
-    
-
 elif args.choice_modality == 'T+A+V':
     args.pretrainedtextmodel_path = os.path.join(load_project_path,'pretrained_model',args.plm_name)
     trg_train_data = get_multimodal_data(args, 'train')  
@@ -124,6 +122,8 @@ elif args.choice_modality == 'T+A+V':
         aux_train_data = get_affwild2_dataset(args) 
         aux_train_loader = DataLoader(aux_train_data, sampler=RandomSampler(aux_train_data), batch_size=args.aux_batch_size) 
         args.aux_n_train = len(aux_train_data)
+else:
+    raise ValueError('choice_modality must be in [V, T+A+V]')
 
 trg_train_loader = DataLoader(trg_train_data, sampler=RandomSampler(trg_train_data), batch_size=args.trg_batch_size)
 trg_valid_loader = DataLoader(trg_valid_data, sampler=SequentialSampler(trg_valid_data), batch_size=args.trg_batch_size)
