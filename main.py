@@ -13,8 +13,8 @@ parser = argparse.ArgumentParser(description='A Facial Expression-Aware Multimod
 
 #---------------------------------------------------------------------------------------------------------------------------------------------#
 '''MELD dataset loading'''
-parser.add_argument('--load_anno_csv_path', type=str, default='/home/zrr/dataset/OpenDataLab___MELD/raw/MELD/MELD.Raw')
-parser.add_argument('--meld_text_path', type=str, default='/home/zrr/dataset/OpenDataLab___MELD/preprocess_data/ref/update')
+parser.add_argument('--load_anno_csv_path', type=str, default='/home/zrr/datasets/OpenDataLab___MELD/raw/MELD/MELD.Raw')
+parser.add_argument('--meld_text_path', type=str, default='/home/zrr/datasets/OpenDataLab___MELD/preprocess_data/ref/update')
 parser.add_argument('--num_labels', type=int, default=7, help='classes number of meld') 
 parser.add_argument('--data_load_path', type=str, default=os.path.join(load_project_path,'preprocess_data/'),    
                     help='path for storing the data')
